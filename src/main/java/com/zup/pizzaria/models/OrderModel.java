@@ -13,6 +13,9 @@ public class OrderModel {
     private String description;
     private Long clientId;
 
+    public OrderModel() {
+    }
+
     public OrderModel(String description, Long clientId) {
         this.description = description;
         this.clientId = clientId;
