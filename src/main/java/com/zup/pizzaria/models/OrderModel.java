@@ -6,14 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Order {
+public class OrderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String description;
     private Long clientId;
 
-    public Order(String description, Long clientId) {
+    public OrderModel(String description, Long clientId) {
         this.description = description;
         this.clientId = clientId;
     }
