@@ -13,6 +13,9 @@ public class ClientModel {
     private String name;
     private String email;
 
+    public ClientModel() {
+    }
+
     public ClientModel(String name, String email) {
         this.name = name;
         this.email = email;
