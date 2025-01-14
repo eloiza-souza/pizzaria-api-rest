@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
-    private ClientRepository clientRepository;
-    private OrderRepository orderRepository;
+    private final ClientRepository clientRepository;
+    private final OrderRepository orderRepository;
 
     public OrderService(ClientRepository clientRepository, OrderRepository orderRepository) {
         this.clientRepository = clientRepository;
