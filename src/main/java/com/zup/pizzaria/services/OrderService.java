@@ -19,12 +19,10 @@ public class OrderService {
     }
 
     public OrderDTO createOrder (OrderModel order){
-        orderRepository.save(order);
-
         ClientModel client = clientRepository.
                 findById(order.getClientId()).
                 orElseThrow(()-> new RuntimeException("Cliente não encontrado"));
-
+        orderRepository.save(order);
         return new OrderDTO(client.getName(), client.getEmail(),order.getDescription());
     }
 }
