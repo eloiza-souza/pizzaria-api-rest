@@ -5,6 +5,8 @@ import com.zup.pizzaria.models.ClientModel;
 import com.zup.pizzaria.repositories.ClientRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClientService {
     private final ClientRepository clientRepository;
@@ -15,7 +17,8 @@ public class ClientService {
 
     public ClientDTO createClient(ClientModel client){
         clientRepository.save(client);
-        return new ClientDTO(client.getName(), client.getEmail());
+        return new ClientDTO(client.getId(), client.getName(), client.getEmail());
     }
+
 
 }
