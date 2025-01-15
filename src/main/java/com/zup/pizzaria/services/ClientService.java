@@ -20,5 +20,7 @@ public class ClientService {
         return new ClientDTO(client.getId(), client.getName(), client.getEmail());
     }
 
-
+    public List<ClientModel> getAllClient(){
+        return clientRepository.findAll();
+    }
 }
