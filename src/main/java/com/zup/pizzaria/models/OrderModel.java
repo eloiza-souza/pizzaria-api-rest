@@ -11,14 +11,14 @@ public class OrderModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String description;
-    private Long clientId;
+    private Long customerId;
 
     public OrderModel() {
     }
 
-    public OrderModel(String description, Long clientId) {
+    public OrderModel(String description, Long customerId) {
         this.description = description;
-        this.clientId = clientId;
+        this.customerId = customerId;
     }
 
     public Long getId() {
@@ -37,11 +37,11 @@ public class OrderModel {
         this.description = description;
     }
 
-    public Long getClientId() {
-        return clientId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 }

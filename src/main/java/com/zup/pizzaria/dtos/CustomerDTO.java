@@ -1,22 +1,12 @@
-package com.zup.pizzaria.models;
+package com.zup.pizzaria.dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class ClientModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDTO {
     private Long id;
     private String name;
     private String email;
 
-    public ClientModel() {
-    }
-
-    public ClientModel(String name, String email) {
+    public CustomerDTO(Long id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }

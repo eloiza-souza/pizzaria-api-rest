@@ -1,28 +1,27 @@
 package com.zup.pizzaria.services;
 
 import com.zup.pizzaria.dtos.OrderDTO;
-import com.zup.pizzaria.models.ClientModel;
+import com.zup.pizzaria.models.CustomerModel;
 import com.zup.pizzaria.models.OrderModel;
-import com.zup.pizzaria.repositories.ClientRepository;
+import com.zup.pizzaria.repositories.CustomerRepository;
 import com.zup.pizzaria.repositories.OrderRepository;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
-    private final ClientRepository clientRepository;
+    private final CustomerRepository customerRepository;
     private final OrderRepository orderRepository;
 
-    public OrderService(ClientRepository clientRepository, OrderRepository orderRepository) {
-        this.clientRepository = clientRepository;
+    public OrderService(CustomerRepository customerRepository, OrderRepository orderRepository) {
+        this.customerRepository = customerRepository;
         this.orderRepository = orderRepository;
     }
 
     public OrderDTO createOrder (OrderModel order){
-        ClientModel client = clientRepository.
-                findById(order.getClientId()).
+        CustomerModel customerModel = customerRepository.
+                findById(order.getCustomerId()).
                 orElseThrow(()-> new RuntimeException("Cliente não encontrado"));
         orderRepository.save(order);
-        return new OrderDTO(client.getName(), client.getEmail(),order.getDescription());
+        return new OrderDTO(customerModel.getName(), customerModel.getEmail(),order.getDescription());
     }
 }
